@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Works — David P. Adekunle</title>
+<title>Geographer | Research & Education Writer — Nigeria</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -17,6 +17,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   html { scroll-behavior: smooth; }
 
   body {
@@ -26,6 +27,7 @@
     overflow-x: hidden;
   }
 
+  /* Grain overlay */
   body::before {
     content: '';
     position: fixed;
@@ -36,416 +38,596 @@
     opacity: 0.5;
   }
 
-  /* ── NAV ── */
-  nav {
-    background: var(--ink);
-    padding: 1.2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--paper);
-    text-decoration: none;
-  }
-
-  .nav-logo span { color: var(--terra); }
-
-  .nav-back {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--dust);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-
-  .nav-back:hover { opacity: 1; color: var(--terra); }
-
-  /* ── PAGE HEADER ── */
-  .page-header {
-    background: var(--ink);
-    padding: 5rem 3rem 4rem;
+  /* ── HERO ─────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     position: relative;
     overflow: hidden;
   }
 
-  .page-header::before {
-    content: 'WORKS';
+  .hero-left {
+    background: var(--ink);
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-left::after {
+    content: '';
     position: absolute;
-    right: -1rem;
-    top: -2rem;
+    right: -1px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--terra);
+  }
+
+  .hero-right {
+    background: var(--paper);
+    padding: 4rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  /* Decorative map lines background */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(180,160,120,0.15) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(180,160,120,0.15) 40px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .nav-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dust);
+    opacity: 0.7;
+  }
+
+  .hero-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(8rem, 14vw, 14rem);
+    font-weight: 900;
+    line-height: 0.85;
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--terra);
+    letter-spacing: -0.04em;
+    opacity: 0.25;
+    position: absolute;
+    bottom: -1rem;
+    left: 2rem;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    color: var(--paper);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--terra);
+  }
+
+  .hero-role {
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-role-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role-line::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--terra);
+    flex-shrink: 0;
+  }
+
+  .hero-role-line span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dust);
+  }
+
+  .hero-tagline {
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    font-style: italic;
+    color: var(--paper);
+    line-height: 1.4;
+    max-width: 340px;
+    position: relative;
+    z-index: 1;
+    opacity: 0.85;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.85rem 2rem;
+    background: var(--terra);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  /* Right side hero content */
+  .hero-stamp {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--terra);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    opacity: 0.12;
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    text-align: right;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-manifesto {
+    position: relative;
+    z-index: 1;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-manifesto p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-manifesto p:last-child { margin-bottom: 0; }
+
+  .hero-manifesto p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .coord-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FOCUS AREAS ─────────────────────────────── */
+  .focus {
+    background: var(--ink);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .focus::before {
+    content: 'FOCUS';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Playfair Display', serif;
     font-size: 12rem;
     font-weight: 900;
     color: transparent;
     -webkit-text-stroke: 1px rgba(255,255,255,0.04);
-    pointer-events: none;
     white-space: nowrap;
+    pointer-events: none;
   }
 
-  .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-
-  .page-label {
+  .section-label {
     font-family: 'DM Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--terra);
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .section-label::before, .section-label::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--terra);
+    opacity: 0.5;
+  }
+
+  .focus-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .focus-item {
+    padding: 2.5rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .focus-item:last-child { border-right: none; }
+  .focus-item:hover { background: rgba(184,76,30,0.06); }
+
+  .focus-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--terra);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .focus-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .focus-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.5);
+  }
+
+  .focus-accent {
+    width: 28px;
+    height: 3px;
+    background: var(--terra);
+    margin-top: 2rem;
+    transition: width 0.3s;
+  }
+
+  .focus-item:hover .focus-accent { width: 56px; }
+
+  /* ── WHAT I DO ──────────────────────────────── */
+  .what {
+    padding: 7rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .what-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    position: sticky;
+    top: 3rem;
+  }
+
+  .what-heading em {
+    display: block;
+    font-style: italic;
+    color: var(--terra);
+  }
+
+  .what-items { display: flex; flex-direction: column; gap: 0; }
+
+  .what-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--dust);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: transform 0.2s;
+    cursor: default;
+  }
+
+  .what-item:hover { transform: translateX(6px); }
+
+  .what-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+  }
+
+  .what-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .what-text {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ── VOICE STRIP ─────────────────────────────── */
+  .voice-strip {
+    background: var(--terra);
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .voice-strip::after {
+    content: '◆';
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8rem;
+    color: rgba(255,255,255,0.08);
+    pointer-events: none;
+  }
+
+  .voice-quote {
+    max-width: 900px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+    font-style: italic;
+    color: var(--paper);
+    line-height: 1.4;
+    position: relative;
+  }
+
+  .voice-quote::before {
+    content: '"';
+    font-size: 6rem;
+    color: rgba(255,255,255,0.2);
+    line-height: 0;
+    vertical-align: -2.5rem;
+    margin-right: 0.2rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .voice-attr {
+    margin-top: 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(245,240,232,0.65);
+    text-transform: uppercase;
+  }
+
+  /* ── TOPICS ──────────────────────────────────── */
+  .topics {
+    padding: 6rem 3rem;
+    background: var(--paper);
+  }
+
+  .topics-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .topics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--dust);
+    padding-bottom: 1.5rem;
+  }
+
+  .topics-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+
+  .topics-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .topics-cloud {
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
   }
 
-  .page-label::before {
+  .tag {
+    padding: 0.55rem 1.25rem;
+    border: 1px solid;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: default;
+    transition: all 0.2s;
+  }
+
+  .tag-terra { border-color: var(--terra); color: var(--terra); }
+  .tag-sage  { border-color: var(--sage); color: var(--sage); }
+  .tag-gold  { border-color: var(--gold); color: var(--gold); }
+  .tag-ink   { border-color: var(--ink); color: var(--ink); }
+
+  .tag:hover { background: var(--ink); color: var(--paper) !important; border-color: var(--ink); }
+
+  .tag-fill-terra { background: var(--terra); color: var(--paper); border-color: var(--terra); font-size: 0.78rem; }
+  .tag-fill-terra:hover { background: var(--ink); border-color: var(--ink); }
+
+  /* ── CONNECT ─────────────────────────────────── */
+  .connect {
+    background: var(--ink);
+    padding: 7rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .connect::before {
+    content: 'NG';
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 20rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .connect-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    color: var(--terra);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .connect-sub::before, .connect-sub::after {
     content: '';
-    width: 24px;
-    height: 2px;
+    width: 30px;
+    height: 1px;
     background: var(--terra);
   }
 
-  .page-title {
+  .connect-heading {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 900;
     color: var(--paper);
     line-height: 1;
     letter-spacing: -0.03em;
-    margin-bottom: 1rem;
-  }
-
-  .page-title em { font-style: italic; color: var(--terra); }
-
-  .page-desc {
-    font-size: 1rem;
-    color: rgba(245,240,232,0.5);
-    max-width: 480px;
-    line-height: 1.7;
-  }
-
-  /* ── FILTER TABS ── */
-  .filter-bar {
-    background: var(--paper);
-    border-bottom: 1px solid var(--dust);
-    padding: 0 3rem;
-    display: flex;
-    gap: 0;
-    max-width: 100%;
-    overflow-x: auto;
-  }
-
-  .filter-tab {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 1.2rem 1.8rem;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-    background: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  .filter-tab:hover { color: var(--ink); }
-  .filter-tab.active { color: var(--terra); border-bottom-color: var(--terra); }
-
-  /* ── WORKS CONTENT ── */
-  .works-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 3rem;
-  }
-
-  /* ── SECTION ── */
-  .works-section { margin-bottom: 5rem; }
-  .works-section:last-child { margin-bottom: 0; }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--dust);
-  }
-
-  .section-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--ink);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--ink);
-  }
-
-  .section-count {
-    margin-left: auto;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  /* ── WORK CARD ── */
-  .works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .work-card {
-    border: 1px solid var(--dust);
-    padding: 2rem;
-    background: var(--paper);
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .work-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--terra);
-    transition: height 0.3s;
-  }
-
-  .work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-  .work-card:hover::before { height: 100%; }
-
-  .work-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 0.75rem;
-  }
-
-  .work-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
-  }
-
-  .work-desc {
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--muted);
     margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
-  .work-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .work-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
-  .work-link {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .connect-heading em {
+    font-style: italic;
     color: var(--terra);
-    text-decoration: none;
-    padding: 0.4rem 0.9rem;
-    border: 1px solid var(--terra);
-    transition: all 0.2s;
   }
 
-  .work-link:hover { background: var(--terra); color: var(--paper); }
-
-  .work-link.disabled {
-    color: var(--dust);
-    border-color: var(--dust);
-    cursor: default;
-    pointer-events: none;
+  .connect-text {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.55);
+    max-width: 420px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
   }
 
-  /* ── MAP CARD (wider) ── */
-  .map-card {
-    border: 1px solid var(--dust);
-    overflow: hidden;
-    transition: all 0.25s;
-  }
-
-  .map-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-
-  .map-preview {
-    width: 100%;
-    height: 200px;
-    background: var(--ink);
+  .connect-links {
     display: flex;
-    align-items: center;
+    gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
     position: relative;
-    overflow: hidden;
+    z-index: 1;
   }
 
-  .map-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-  }
-
-  .map-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0.25;
-  }
-
-  .map-placeholder-icon { font-size: 2.5rem; }
-
-  .map-placeholder-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
+  .btn-primary {
+    padding: 0.9rem 2.2rem;
+    background: var(--terra);
     color: var(--paper);
-    text-transform: uppercase;
-  }
-
-  .map-card-body { padding: 1.5rem 2rem; }
-
-  /* ── EMPTY STATE ── */
-  .empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    border: 1px dashed var(--dust);
-  }
-
-  .empty-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.4; }
-
-  .empty-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    opacity: 0.5;
-  }
-
-  .empty-text {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-    opacity: 0.5;
-  }
-
-  /* ── HOW TO ADD (instruction box) ── */
-  .add-guide {
-    background: var(--ink);
-    padding: 2.5rem;
-    margin-top: 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .add-guide::before {
-    content: '+';
-    position: absolute;
-    right: 1rem;
-    top: -1rem;
-    font-size: 10rem;
-    color: rgba(255,255,255,0.03);
-    font-family: 'Playfair Display', serif;
-    pointer-events: none;
-  }
-
-  .add-guide-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 1rem;
-  }
-
-  .add-guide-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--paper);
-    margin-bottom: 1rem;
-  }
-
-  .add-guide-steps {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .add-guide-steps li {
     font-family: 'DM Mono', monospace;
     font-size: 0.72rem;
-    color: rgba(245,240,232,0.55);
-    letter-spacing: 0.05em;
-    display: flex;
-    gap: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
   }
 
-  .add-guide-steps li::before {
-    content: '→';
-    color: var(--terra);
-    flex-shrink: 0;
-  }
+  .btn-primary:hover { background: var(--gold); color: var(--ink); }
 
-  .code-hint {
-    margin-top: 1.5rem;
-    background: rgba(255,255,255,0.05);
-    padding: 1rem 1.5rem;
+  .btn-outline {
+    padding: 0.9rem 2.2rem;
+    border: 1px solid rgba(245,240,232,0.25);
+    color: rgba(245,240,232,0.6);
     font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    color: rgba(245,240,232,0.4);
-    letter-spacing: 0.05em;
-    line-height: 1.8;
-    border-left: 2px solid var(--terra);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
   }
 
-  /* ── FOOTER ── */
+  .btn-outline:hover { border-color: var(--paper); color: var(--paper); }
+
+  /* ── FOOTER ──────────────────────────────────── */
   footer {
     background: var(--ink);
     border-top: 1px solid rgba(255,255,255,0.06);
@@ -471,211 +653,185 @@
     letter-spacing: 0.1em;
   }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .page-header { padding: 3rem 1.5rem 2.5rem; }
-    .filter-bar { padding: 0 1.5rem; }
-    .works-content { padding: 3rem 1.5rem; }
-    .works-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  /* ── ANIMATIONS ──────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-name    { animation: fadeUp 0.8s ease both; }
+  .hero-role    { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-tagline { animation: fadeUp 0.8s 0.25s ease both; }
+  .hero-cta     { animation: fadeUp 0.8s 0.35s ease both; }
+  .hero-manifesto { animation: fadeUp 0.9s 0.2s ease both; }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 3rem 2rem; min-height: 60vh; }
+    .hero-right { padding: 3rem 2rem; }
+    .hero-left::after { display: none; }
+    .hero-right::before { display: none; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .focus-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .what { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+    .what-heading { position: static; font-size: 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .topics { padding: 4rem 2rem; }
+    .connect { padding: 5rem 2rem; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="index.html" class="nav-logo">David P. <span>Adekunle</span></a>
-  <a href="index.html" class="nav-back">← Back to Home</a>
-</nav>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="nav-label">David P. Adekunle · Nigeria</div>
 
-<!-- ── PAGE HEADER ── -->
-<section class="page-header">
-  <div class="page-header-inner">
-    <div class="page-label">Portfolio</div>
-    <h1 class="page-title">My <em>Works</em></h1>
-    <p class="page-desc">A growing collection of articles, maps, and reports exploring geography, education, and development in Nigeria.</p>
+    <div>
+      <h1 class="hero-name">
+        Geography<br>as a <em>Tool</em><br>for Change.
+      </h1>
+      <div class="hero-role">
+        <div class="hero-role-line"><span>Geographer</span></div>
+        <div class="hero-role-line"><span>Research & Education Writer</span></div>
+        <div class="hero-role-line"><span>Nigeria · West Africa</span></div>
+      </div>
+      <p class="hero-tagline">Exploring social issues, education, and development — one map, one story at a time.</p>
+      <a href="#connect" class="hero-cta">Work With Me →</a>
+      <a href="works.html" class="hero-cta" style="background:transparent;border:1px solid var(--terra);color:var(--terra);margin-top:0.75rem;">View My Works →</a>
+    </div>
+
+    <div class="coord-tag">6.5244° N, 3.3792° E — Lagos, Nigeria</div>
+    <div class="hero-number" aria-hidden="true">NG</div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stamp" aria-hidden="true">Geo<br>grapher</div>
+    <div class="hero-manifesto">
+      <p><strong>Nigeria is not a problem to be solved.</strong> It is a landscape of stories, systems, and people — waiting for the right frameworks to be understood.</p>
+      <p>I sit at the intersection of place, policy, and people. I write with data. I think with maps. I speak for communities that research too often talks <em>about</em>, not <em>with</em>.</p>
+      <p>My work bridges the gap between academic insight and public understanding — making geography matter beyond the classroom.</p>
+    </div>
+    <div class="coord-tag">©2026 · All views grounded in research</div>
   </div>
 </section>
 
-<!-- ── FILTER BAR ── -->
-<div class="filter-bar">
-  <button class="filter-tab active">All</button>
-  <button class="filter-tab">Articles</button>
-  <button class="filter-tab">Maps</button>
-  <button class="filter-tab">Reports</button>
-</div>
-
-<!-- ── WORKS ── -->
-<div class="works-content">
-
-  <!-- ARTICLES -->
-  <div class="works-section" id="articles">
-    <div class="section-header">
-      <div class="section-icon">✍️</div>
-      <h2 class="section-title">Articles</h2>
-      <span class="section-count">0 published</span>
+<!-- ── FOCUS AREAS ── -->
+<section class="focus">
+  <div class="section-label">Areas of Focus</div>
+  <div class="focus-grid">
+    <div class="focus-item">
+      <span class="focus-num">01 /</span>
+      <h3 class="focus-title">Social Geography</h3>
+      <p class="focus-desc">Unpacking how place, power, and identity shape lived experiences across Nigeria's cities, towns, and communities.</p>
+      <div class="focus-accent"></div>
     </div>
-
-    <!-- EMPTY STATE — delete this block and replace with work cards when you have articles -->
-    <div class="empty-state">
-      <div class="empty-icon">✍️</div>
-      <div class="empty-title">Articles coming soon</div>
-      <div class="empty-text">Check back for research essays & commentary</div>
+    <div class="focus-item">
+      <span class="focus-num">02 /</span>
+      <h3 class="focus-title">Education Systems</h3>
+      <p class="focus-desc">Examining access, quality, and equity in Nigerian education — from policy gaps to classroom realities.</p>
+      <div class="focus-accent"></div>
     </div>
+    <div class="focus-item">
+      <span class="focus-num">03 /</span>
+      <h3 class="focus-title">Development & Planning</h3>
+      <p class="focus-desc">Analyzing spatial development, urban growth, rural neglect, and what sustainable progress looks like for Nigeria.</p>
+      <div class="focus-accent"></div>
+    </div>
+  </div>
+</section>
 
-    <!-- =====================================================
-    HOW TO ADD AN ARTICLE:
-    Delete the empty-state block above and paste this instead,
-    filling in your own details:
-
-    <div class="works-grid">
-
-      <div class="work-card">
-        <div class="work-type">Article · Geography</div>
-        <h3 class="work-title">Your Article Title Here</h3>
-        <p class="work-desc">A short 1-2 sentence description of what the article is about and why it matters.</p>
-        <div class="work-footer">
-          <span class="work-year">2025</span>
-          <a href="YOUR-LINK-HERE" target="_blank" class="work-link">Read →</a>
+<!-- ── WHAT I DO ── -->
+<section style="background: var(--paper);">
+  <div class="what">
+    <div>
+      <h2 class="what-heading">What I<br><em>Do</em></h2>
+    </div>
+    <div class="what-items">
+      <div class="what-item">
+        <div class="what-icon">✍️</div>
+        <div>
+          <div class="what-title">Research Writing</div>
+          <p class="what-text">Long-form essays, policy briefs, and analytical pieces that translate complex geographic and social science research into clear, compelling narratives for wide audiences.</p>
         </div>
       </div>
-
-      ADD MORE CARDS HERE BY COPYING THE BLOCK ABOVE
-
-    </div>
-    ===================================================== -->
-
-  </div>
-
-  <!-- MAPS -->
-  <div class="works-section" id="maps">
-    <div class="section-header">
-      <div class="section-icon">🗺️</div>
-      <h2 class="section-title">Maps</h2>
-      <span class="section-count">0 published</span>
-    </div>
-
-    <!-- EMPTY STATE — delete this block when you have maps -->
-    <div class="empty-state">
-      <div class="empty-icon">🗺️</div>
-      <div class="empty-title">Maps coming soon</div>
-      <div class="empty-text">Spatial analysis & cartographic works</div>
-    </div>
-
-    <!-- =====================================================
-    HOW TO ADD A MAP:
-    Delete the empty-state block above and paste this instead:
-
-    <div class="works-grid">
-
-      <div class="map-card">
-        <div class="map-preview">
-          <img src="maps/your-map-filename.jpg" alt="Map title">
-          OR if no image, leave the placeholder below:
-          <div class="map-placeholder">
-            <div class="map-placeholder-icon">🗺️</div>
-            <div class="map-placeholder-text">Map Preview</div>
-          </div>
-        </div>
-        <div class="map-card-body">
-          <div class="work-type">Map · Urban Geography</div>
-          <h3 class="work-title">Your Map Title Here</h3>
-          <p class="work-desc">What does this map show and why is it significant?</p>
-          <div class="work-footer">
-            <span class="work-year">2025</span>
-            <a href="YOUR-LINK-HERE" target="_blank" class="work-link">View →</a>
-          </div>
+      <div class="what-item">
+        <div class="what-icon">📍</div>
+        <div>
+          <div class="what-title">Place-Based Analysis</div>
+          <p class="what-text">Spatial storytelling that connects data, maps, and lived experience to explain why geography shapes opportunity, inequality, and identity in Nigeria.</p>
         </div>
       </div>
-
-    </div>
-    ===================================================== -->
-
-  </div>
-
-  <!-- REPORTS -->
-  <div class="works-section" id="reports">
-    <div class="section-header">
-      <div class="section-icon">📊</div>
-      <h2 class="section-title">Reports</h2>
-      <span class="section-count">0 published</span>
-    </div>
-
-    <!-- EMPTY STATE — delete this block when you have reports -->
-    <div class="empty-state">
-      <div class="empty-icon">📊</div>
-      <div class="empty-title">Reports coming soon</div>
-      <div class="empty-text">Research reports & policy briefs</div>
-    </div>
-
-    <!-- =====================================================
-    HOW TO ADD A REPORT:
-    Delete the empty-state block above and paste this instead:
-
-    <div class="works-grid">
-
-      <div class="work-card">
-        <div class="work-type">Report · Education</div>
-        <h3 class="work-title">Your Report Title Here</h3>
-        <p class="work-desc">A short description of what this report covers and its key findings.</p>
-        <div class="work-footer">
-          <span class="work-year">2025</span>
-          <a href="YOUR-LINK-HERE" target="_blank" class="work-link">Download →</a>
+      <div class="what-item">
+        <div class="what-icon">📚</div>
+        <div>
+          <div class="what-title">Education Commentary</div>
+          <p class="what-text">Critical perspectives on Nigeria's educational landscape — what works, what's failing, and what reform actually requires on the ground.</p>
         </div>
       </div>
-
-    </div>
-    ===================================================== -->
-
-  </div>
-
-  <!-- HOW TO ADD WORKS — QUICK REFERENCE -->
-  <div class="add-guide">
-    <div class="add-guide-label">Quick Reference · How to Add Works</div>
-    <div class="add-guide-title">Adding a new work to this page</div>
-    <ul class="add-guide-steps">
-      <li>Go to your GitHub repository and open works.html</li>
-      <li>Click the pencil/edit icon ✏️</li>
-      <li>Find the section (Articles, Maps, or Reports)</li>
-      <li>Delete the empty-state block in that section</li>
-      <li>Copy the template in the comments and fill in your details</li>
-      <li>Click Commit changes — your site updates instantly</li>
-    </ul>
-    <div class="code-hint">
-      TIP: To add more cards, copy the entire &lt;div class="work-card"&gt;...&lt;/div&gt; block and paste it inside the works-grid div. Change the title, description, year and link.
+      <div class="what-item">
+        <div class="what-icon">🎙️</div>
+        <div>
+          <div class="what-title">Public Engagement</div>
+          <p class="what-text">Talks, panels, and content that bring geographic thinking into public conversations about Nigeria's future — accessible without being simplistic.</p>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-</div>
+<!-- ── VOICE STRIP ── -->
+<section class="voice-strip">
+  <p class="voice-quote">Geography is never just about where things are — it's about why they are there, who put them there, and who it serves.</p>
+  <p class="voice-attr">— The Framework I Write From</p>
+</section>
+
+<!-- ── TOPICS ── -->
+<section class="topics">
+  <div class="topics-inner">
+    <div class="topics-header">
+      <h2 class="topics-title">Topics I Cover</h2>
+      <span class="topics-sub">Research Interests</span>
+    </div>
+    <div class="topics-cloud">
+      <span class="tag tag-fill-terra">Nigerian Education</span>
+      <span class="tag tag-terra">Urban Geography</span>
+      <span class="tag tag-sage">Rural Development</span>
+      <span class="tag tag-ink">Social Inequality</span>
+      <span class="tag tag-gold">Policy Analysis</span>
+      <span class="tag tag-terra">Youth & Society</span>
+      <span class="tag tag-sage">Land Use & Planning</span>
+      <span class="tag tag-ink">Climate Vulnerability</span>
+      <span class="tag tag-gold">Northern Nigeria</span>
+      <span class="tag tag-terra">Migration Patterns</span>
+      <span class="tag tag-sage">Public Health Geography</span>
+      <span class="tag tag-ink">Food Systems</span>
+      <span class="tag tag-gold">Electoral Geography</span>
+      <span class="tag tag-terra">Conflict & Displacement</span>
+      <span class="tag tag-sage">Infrastructure Gaps</span>
+      <span class="tag tag-ink">Diaspora & Identity</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONNECT ── -->
+<section class="connect" id="connect">
+  <p class="connect-sub">Let's Talk</p>
+  <h2 class="connect-heading">Ready to <em>Collaborate?</em></h2>
+  <p class="connect-text">Whether you need a research writer, a geographic perspective, or a voice on Nigeria's social challenges — let's connect.<br><br><span style="font-family:'DM Mono',monospace;font-size:0.75rem;color:rgba(245,240,232,0.55);letter-spacing:0.08em;">📞 +234 903 506 0404 &nbsp;·&nbsp; ✉️ davidpelumiadekunle@gmail.com</span></p>
+  <div class="connect-links">
+    <a href="mailto:davidpelumiadekunle@gmail.com" class="btn-primary">Send a Message</a>
+    <a href="https://www.facebook.com/profile.php?id=100005131481601" target="_blank" class="btn-outline">Facebook →</a>
+    <a href="https://www.linkedin.com/in/david-p-adekunle-ba2929190" target="_blank" class="btn-outline">LinkedIn →</a>
+  </div>
+</section>
 
 <footer>
-  <div class="footer-mark">David P. Adekunle</div>
-  <div class="footer-copy">© 2026 · Geographer · Research & Education Writer · Nigeria</div>
+  <div class="footer-mark">Geography · Society · Nigeria</div>
+  <div class="footer-copy">© 2026 · David P. Adekunle · Research & Education Writer</div>
 </footer>
-
-<script>
-  // Filter tabs
-  const tabs = document.querySelectorAll('.filter-tab');
-  const sections = { 'Articles': 'articles', 'Maps': 'maps', 'Reports': 'reports' };
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const label = tab.textContent.trim();
-      if (label === 'All') {
-        document.querySelectorAll('.works-section').forEach(s => s.style.display = '');
-      } else {
-        document.querySelectorAll('.works-section').forEach(s => s.style.display = 'none');
-        const target = sections[label];
-        if (target) document.getElementById(target).style.display = '';
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
