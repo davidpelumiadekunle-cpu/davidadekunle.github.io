@@ -1166,7 +1166,10 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 <script>
 const pages = ['home','about','portfolio','books','blog','skills','cv','testimonials','services','volunteering','contact'];
 
-function showPage(name) {
+const VALID_PAGES = ['home','about','portfolio','books','blog','cv','services','volunteering','contact'];
+
+function showPage(name, fromHash) {
+  if (!VALID_PAGES.includes(name)) name = 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
@@ -1176,7 +1179,18 @@ function showPage(name) {
   syncMobileActive(name);
   window.scrollTo(0,0);
   closePost();
+  if (!fromHash) window.location.hash = name === 'home' ? '' : name;
 }
+
+window.addEventListener('hashchange', () => {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  showPage(hash, true);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  showPage(hash, true);
+});
 
 function filterPortfolio(cat, btn) {
   document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
