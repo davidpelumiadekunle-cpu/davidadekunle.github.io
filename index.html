@@ -101,14 +101,6 @@
   .ftab.active { color: var(--terra); border-bottom-color: var(--terra); }
 
   /* ══ GUIDE BOX ══ */
-  .guide-box { background: var(--ink); padding: 2.25rem; margin-top: 4rem; position: relative; overflow: hidden; }
-  .guide-box::before { content: '+'; position: absolute; right: 0.5rem; top: -1.5rem; font-size: 9rem; color: rgba(255,255,255,0.025); font-family: 'Playfair Display', serif; pointer-events: none; }
-  .guide-lbl { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.75rem; }
-  .guide-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--paper); margin-bottom: 0.75rem; }
-  .guide-steps { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .guide-steps li { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: rgba(245,240,232,0.5); letter-spacing: 0.04em; display: flex; gap: 0.6rem; }
-  .guide-steps li::before { content: '→'; color: var(--terra); flex-shrink: 0; }
-  .code-tip { margin-top: 1.25rem; background: rgba(255,255,255,0.04); padding: 0.9rem 1.25rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: rgba(245,240,232,0.35); line-height: 1.8; border-left: 2px solid var(--terra); }
 
   /* ══ SECTION SPACING ══ */
   .wsection { margin-bottom: 4.5rem; }
@@ -236,22 +228,15 @@
 </style>
 </head>
 <body>
-
-<!-- ══ NAV ══ -->
 <nav class="site-nav">
   <div class="nav-logo" onclick="showPage('home')">David P. <span>Adekunle</span></div>
   <div class="nav-links">
     <button class="nav-btn active" onclick="showPage('home')">Home</button>
-    <button class="nav-btn"        onclick="showPage('works')">Works</button>
+    <button class="nav-btn"        onclick="showPage('works')">Portfolio</button>
     <button class="nav-btn"        onclick="showPage('books')">Books</button>
     <button class="nav-btn"        onclick="showPage('contact')">Contact</button>
   </div>
 </nav>
-
-
-<!-- ══════════════════════════════
-     PAGE: HOME
-══════════════════════════════ -->
 <div id="page-home" class="page active">
 
   <section class="hero">
@@ -346,18 +331,13 @@
     <div class="ft-copy">© 2026 · David P. Adekunle · Geographer & Author</div>
   </footer>
 </div>
-
-
-<!-- ══════════════════════════════
-     PAGE: WORKS
-══════════════════════════════ -->
 <div id="page-works" class="page">
 
   <section class="pg-hd">
     <div class="pg-hd-bg">WORKS</div>
     <div class="pg-hd-inner">
       <div class="pg-label">Portfolio</div>
-      <h1 class="pg-title">My <em>Works</em></h1>
+      <h1 class="pg-title">My <em>Portfolio</em></h1>
       <p class="pg-desc">Articles, maps, and reports exploring geography, education, and development in Nigeria.</p>
     </div>
   </section>
@@ -383,27 +363,6 @@
         <div class="empty-t">Articles coming soon</div>
         <div class="empty-s">Research essays & commentary</div>
       </div>
-      <!--
-      ═══ HOW TO ADD AN ARTICLE ═══
-      1. Delete the <div class="empty">...</div> block above
-      2. Paste the code below and fill in your details:
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-type">Article · Geography</div>
-          <h3 class="card-title">Your Article Title Here</h3>
-          <p class="card-desc">A short description of what the article is about.</p>
-          <div class="card-foot">
-            <span class="card-year">2025</span>
-            <a href="YOUR-LINK-HERE" target="_blank" class="card-link">Read →</a>
-          </div>
-        </div>
-      </div>
-
-      To add more articles, copy the <div class="card">...</div> block
-      and paste it inside <div class="card-grid">
-      ═══════════════════════════════
-      -->
     </div>
 
     <!-- ── MAPS ── -->
@@ -418,24 +377,6 @@
         <div class="empty-t">Maps coming soon</div>
         <div class="empty-s">Spatial analysis & cartographic works</div>
       </div>
-      <!--
-      ═══ HOW TO ADD A MAP ═══
-      1. Delete the <div class="empty">...</div> block above
-      2. Paste the code below and fill in your details:
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-type">Map · Urban Geography</div>
-          <h3 class="card-title">Your Map Title Here</h3>
-          <p class="card-desc">What does this map show and why does it matter?</p>
-          <div class="card-foot">
-            <span class="card-year">2025</span>
-            <a href="YOUR-LINK-HERE" target="_blank" class="card-link">View →</a>
-          </div>
-        </div>
-      </div>
-      ═══════════════════════════════
-      -->
     </div>
 
     <!-- ── REPORTS ── -->
@@ -450,51 +391,13 @@
         <div class="empty-t">Reports coming soon</div>
         <div class="empty-s">Research reports & policy briefs</div>
       </div>
-      <!--
-      ═══ HOW TO ADD A REPORT ═══
-      1. Delete the <div class="empty">...</div> block above
-      2. Paste the code below and fill in your details:
-
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-type">Report · Education</div>
-          <h3 class="card-title">Your Report Title Here</h3>
-          <p class="card-desc">Short description of what this report covers.</p>
-          <div class="card-foot">
-            <span class="card-year">2025</span>
-            <a href="YOUR-LINK-HERE" target="_blank" class="card-link">Download →</a>
-          </div>
-        </div>
-      </div>
-      ═══════════════════════════════
-      -->
-    </div>
-
-    <div class="guide-box">
-      <div class="guide-lbl">Quick Reference · Adding Works</div>
-      <div class="guide-title">How to add a new work</div>
-      <ul class="guide-steps">
-        <li>Go to your GitHub repo → open index.html → tap the ✏️ pencil/edit icon</li>
-        <li>Press Ctrl+F and search for the section you want (e.g. "HOW TO ADD AN ARTICLE")</li>
-        <li>Delete the empty block just above that comment</li>
-        <li>Copy the template from the comment and fill in your title, description, year and link</li>
-        <li>Tap Commit changes — your site updates live instantly</li>
-      </ul>
-      <div class="code-tip">TIP: To add more than one card, copy the entire &lt;div class="card"&gt;...&lt;/div&gt; block and paste another copy inside the &lt;div class="card-grid"&gt;. Change the details for each one.</div>
-    </div>
-
-  </div>
+    </div></div>
 
   <footer>
     <div class="ft-mark">David P. Adekunle</div>
     <div class="ft-copy">© 2026 · Geographer · Research & Education Writer · Nigeria</div>
   </footer>
 </div>
-
-
-<!-- ══════════════════════════════
-     PAGE: BOOKS
-══════════════════════════════ -->
 <div id="page-books" class="page">
 
   <section class="pg-hd">
@@ -520,72 +423,13 @@
         <div class="empty-t">Books coming soon</div>
         <div class="empty-s">Published & forthcoming titles</div>
       </div>
-      <!--
-      ═══ HOW TO ADD A BOOK ═══
-      1. Delete the <div class="empty">...</div> block above
-      2. Paste the code below and fill in your details:
-
-      <div class="book-grid">
-
-        <div class="book-card">
-          <div class="book-cover">
-            If you have a cover image:
-            <img src="book-cover-1.jpg" alt="Book Title">
-
-            If you do NOT have a cover image yet, use this placeholder:
-            <div class="book-cover-ph">
-              <div class="book-cover-ph-icon">📖</div>
-              <div class="book-cover-ph-title">Your Book Title</div>
-            </div>
-          </div>
-          <div class="book-genre">Geography · Non-Fiction</div>
-          <h3 class="book-title">Your Book Title Here</h3>
-          <p class="book-desc">A short description of what the book is about and who it is for.</p>
-          <div class="book-foot">
-            <span class="book-year">2025</span>
-            <a href="YOUR-PURCHASE-OR-INFO-LINK" target="_blank" class="book-link">Get Book →</a>
-          </div>
-        </div>
-
-      </div>
-
-      To add more books, copy the entire <div class="book-card">...</div>
-      block and paste it inside <div class="book-grid">.
-
-      TO ADD A COVER IMAGE:
-      - Upload your cover image to GitHub first (Code button → Upload file)
-      - Name it something simple like: book-cover-1.jpg
-      - Then replace book-cover-1.jpg in the img src with your filename
-      ═══════════════════════════════
-      -->
-    </div>
-
-    <div class="guide-box">
-      <div class="guide-lbl">Quick Reference · Adding Books</div>
-      <div class="guide-title">How to add a new book</div>
-      <ul class="guide-steps">
-        <li>Go to your GitHub repo → open index.html → tap the ✏️ pencil/edit icon</li>
-        <li>Press Ctrl+F and search for "HOW TO ADD A BOOK"</li>
-        <li>Delete the empty block just above that comment</li>
-        <li>Copy the book template from the comment and fill in your details</li>
-        <li>To add a cover: upload the image file to your GitHub repo first, then use its filename in the img src</li>
-        <li>Tap Commit changes — your site updates live instantly</li>
-      </ul>
-      <div class="code-tip">TIP: Name your cover images simply — e.g. book1.jpg, book2.jpg. Upload them to GitHub first (green Code button → Upload file), then reference them in the book card as: &lt;img src="book1.jpg" alt="Book Title"&gt;</div>
-    </div>
-
-  </div>
+    </div></div>
 
   <footer>
     <div class="ft-mark">David P. Adekunle · Author</div>
     <div class="ft-copy">© 2026 · Author · Geographer · Nigeria</div>
   </footer>
 </div>
-
-
-<!-- ══════════════════════════════
-     PAGE: CONTACT
-══════════════════════════════ -->
 <div id="page-contact" class="page">
 
   <section class="pg-hd">
