@@ -367,6 +367,28 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 .vol-lb-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(245,240,232,.6);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;transition:all .2s;}
 .vol-lb-btn:hover{border-color:var(--terra);color:var(--terra);}
 
+/* ── HAMBURGER BUTTON ── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;border-radius:2px;transition:background .2s;flex-shrink:0;}
+.nav-hamburger:hover{background:rgba(255,255,255,.08);}
+.nav-hamburger:focus{outline:2px solid var(--terra);outline-offset:2px;}
+.nav-hamburger .bar{display:block;width:22px;height:2px;background:var(--paper);border-radius:2px;transition:transform .3s ease,opacity .3s ease,width .3s ease;transform-origin:center;}
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(2){opacity:0;width:0;}
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── MOBILE DROPDOWN ── */
+.nav-mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:var(--ink);border-top:1px solid rgba(255,255,255,.06);border-bottom:2px solid var(--terra);z-index:999;flex-direction:column;padding:.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,.4);transform:translateY(-8px);opacity:0;transition:transform .25s ease,opacity .25s ease;}
+.nav-mobile-menu.open{display:flex;transform:translateY(0);opacity:1;}
+.nav-mobile-menu .nav-btn{font-size:.7rem;letter-spacing:.12em;padding:.85rem 1.75rem;text-align:left;border-bottom:1px solid rgba(255,255,255,.04);width:100%;color:rgba(245,240,232,.6);}
+.nav-mobile-menu .nav-btn:last-child{border-bottom:none;}
+.nav-mobile-menu .nav-btn:hover{background:rgba(255,255,255,.05);color:var(--paper);}
+.nav-mobile-menu .nav-btn.active{color:var(--terra);background:rgba(184,76,30,.08);}
+
+@media(max-width:768px){
+  .nav-menu{display:none !important;}
+  .nav-hamburger{display:flex;}
+}
+
 /* RESPONSIVE */
 @media(max-width:860px){
   .vol-grid{grid-template-columns:1fr;}
@@ -398,9 +420,9 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 <body>
 
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-logo" onclick="showPage('home')">David P. <span>Adekunle</span></div>
-  <div class="nav-menu">
+  <div class="nav-menu" role="menubar">
     <button class="nav-btn active" onclick="showPage('home')">Home</button>
     <button class="nav-btn" onclick="showPage('about')">About</button>
     <button class="nav-btn" onclick="showPage('portfolio')">Portfolio</button>
@@ -411,7 +433,26 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
     <button class="nav-btn" onclick="showPage('volunteering')">Volunteering</button>
     <button class="nav-btn" onclick="showPage('contact')">Contact</button>
   </div>
+  <!-- Hamburger (mobile only) -->
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile-menu" onclick="toggleMobileMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
 </nav>
+
+<!-- Mobile menu -->
+<div class="nav-mobile-menu" id="nav-mobile-menu" role="menu" aria-label="Mobile navigation">
+  <button class="nav-btn active" onclick="mobileNav('home')" role="menuitem">Home</button>
+  <button class="nav-btn" onclick="mobileNav('about')" role="menuitem">About</button>
+  <button class="nav-btn" onclick="mobileNav('portfolio')" role="menuitem">Portfolio</button>
+  <button class="nav-btn" onclick="mobileNav('books')" role="menuitem">Books</button>
+  <button class="nav-btn" onclick="mobileNav('blog')" role="menuitem">Blog</button>
+  <button class="nav-btn" onclick="mobileNav('cv')" role="menuitem">CV</button>
+  <button class="nav-btn" onclick="mobileNav('services')" role="menuitem">Services</button>
+  <button class="nav-btn" onclick="mobileNav('volunteering')" role="menuitem">Volunteering</button>
+  <button class="nav-btn" onclick="mobileNav('contact')" role="menuitem">Contact</button>
+</div>
 
 
 <!-- ═══════════════════════ HOME ═══════════════════════ -->
@@ -1132,8 +1173,8 @@ function showPage(name) {
   document.querySelectorAll('.nav-btn').forEach(b => {
     if(b.textContent.trim().toLowerCase() === name.toLowerCase()) b.classList.add('active');
   });
+  syncMobileActive(name);
   window.scrollTo(0,0);
-  // close any open blog post
   closePost();
 }
 
@@ -1204,6 +1245,74 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') lbNext();
   if (e.key === 'Escape') closeLightbox();
 });
+// Sync mobile active state
+function syncMobileActive(name) {
+  document.querySelectorAll('#nav-mobile-menu .nav-btn').forEach(b => {
+    const oc = b.getAttribute('onclick') || '';
+    b.classList.toggle('active', oc.includes("'" + name + "'"));
+  });
+}
+// Hamburger functions
+function toggleMobileMenu() {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (menu.classList.contains('open')) {
+    closeMobileMenu();
+  } else {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation menu');
+    menu.querySelector('.nav-btn').focus();
+  }
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Open navigation menu');
+}
+function mobileNav(name) { showPage(name); closeMobileMenu(); }
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) closeMobileMenu();
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMobileMenu(); });
+document.getElementById('nav-mobile-menu').addEventListener('keydown', function(e) {
+  const items = Array.from(this.querySelectorAll('.nav-btn'));
+  const idx = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(idx + 1) % items.length].focus(); }
+  if (e.key === 'ArrowUp')   { e.preventDefault(); items[(idx - 1 + items.length) % items.length].focus(); }
+});
+
+// ── AUTO SLIDESHOW ──
+const slideshowState = { cheer: 0, plastic: 0 };
+
+function startSlideshows() {
+  ['cheer', 'plastic'].forEach(set => {
+    setInterval(() => {
+      if (document.getElementById('vol-lightbox').classList.contains('open')) return;
+      const total = lbSets[set].length;
+      slideshowState[set] = (slideshowState[set] + 1) % total;
+      const idx = slideshowState[set];
+      const wrap = document.querySelector(`.vol-img-wrap[onclick="openLightbox('${set}', 0)"]`);
+      if (wrap) {
+        const img = wrap.querySelector('img');
+        if (img) {
+          img.style.opacity = '0';
+          img.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            img.src = lbSets[set][idx].src;
+            img.alt = lbSets[set][idx].caption;
+            img.style.opacity = '1';
+          }, 500);
+        }
+      }
+    }, 4000);
+  });
+}
+window.addEventListener('load', startSlideshows);
 </script>
 </body>
 </html>
