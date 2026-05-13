@@ -260,6 +260,16 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 .post-body p{margin-bottom:1.2rem;}
 .post-body h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin:2rem 0 .75rem;}
 
+/* ── SHARE BAR ── */
+.share-bar{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--dust);}
+.share-bar-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;}
+.share-btns{display:flex;flex-wrap:wrap;gap:.6rem;}
+.share-btn{display:inline-flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.55rem 1.1rem;border:1px solid var(--dust);background:none;cursor:pointer;color:var(--ink);text-decoration:none;transition:all .2s;}
+.share-btn:hover{border-color:var(--terra);color:var(--terra);}
+.share-btn.copied{border-color:var(--sage);color:var(--sage);}
+.share-btn svg{width:13px;height:13px;flex-shrink:0;fill:currentColor;}
+@media(max-width:600px){.share-btns{gap:.5rem;}.share-btn{font-size:.55rem;padding:.5rem .9rem;}}
+
 /* ═══════════════════════════════
    CV PAGE
 ═══════════════════════════════ */
@@ -713,7 +723,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
         <div class="blog-posts">
 
           <!-- SAMPLE POST 1 -->
-          <div class="blog-post" onclick="openPost('post1')">
+          <div class="blog-post" data-post-id="education-in-nigeria" onclick="openPost('post1','education-in-nigeria')">
             <div class="bp-meta"><span class="bp-cat">Education</span><span class="bp-date">May 2026</span></div>
             <h2 class="bp-title">The State of Education in Nigeria: A Geographic Perspective</h2>
             <p class="bp-excerpt">Nigeria's education crisis is not just a funding problem — it is a spatial problem. Schools are not distributed equally across the country, and the gap between urban and rural access tells a story that statistics alone cannot capture...</p>
@@ -721,7 +731,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
           </div>
 
           <!-- SAMPLE POST 2 -->
-          <div class="blog-post" onclick="openPost('post2')">
+          <div class="blog-post" data-post-id="youth-unemployment-nigeria" onclick="openPost('post2','youth-unemployment-nigeria')">
             <div class="bp-meta"><span class="bp-cat">Urban Geography</span><span class="bp-date">May 2026</span></div>
             <h2 class="bp-title">Youth Unemployment and the Geography of Opportunity in Nigeria</h2>
             <p class="bp-excerpt">Where you are born in Nigeria largely determines what opportunities are available to you. The concentration of economic activity in Lagos and Abuja while vast regions remain underserved is not an accident — it is a policy outcome...</p>
@@ -729,7 +739,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
           </div>
 
           <!-- SAMPLE POST 3 -->
-          <div class="blog-post" onclick="openPost('post3')">
+          <div class="blog-post" data-post-id="housing-crisis-nigeria" onclick="openPost('post3','housing-crisis-nigeria')">
             <div class="bp-meta"><span class="bp-cat">Development</span><span class="bp-date">April 2026</span></div>
             <h2 class="bp-title">Housing Crisis in Nigerian Cities: Who Is Building for Whom?</h2>
             <p class="bp-excerpt">The Nigerian housing market is one of the most glaring examples of spatial injustice in contemporary Africa. As luxury estates multiply in Lekki and Maitama, millions remain in informal settlements with no security of tenure...</p>
@@ -775,6 +785,27 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
           <p>Geographic analysis of educational outcomes reveals something important: the farther you are from an urban centre in Nigeria, the lower your educational attainment is likely to be. This is true controlling for income, ethnicity, and religion. Space itself — distance, terrain, infrastructure — is an independent variable in educational inequality.</p>
           <p>This has profound implications for policy. Education reform that does not account for geography is education reform that will fail the children who need it most.</p>
         </div>
+        <div class="share-bar">
+          <div class="share-bar-label">Share this article</div>
+          <div class="share-btns">
+            <a class="share-btn" id="share-twitter-post1" href="#" target="_blank" rel="noopener" aria-label="Share on Twitter/X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter / X
+            </a>
+            <a class="share-btn" id="share-facebook-post1" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a class="share-btn" id="share-linkedin-post1" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <button class="share-btn" id="copy-post1" onclick="copyLink('post1','copy-post1')" aria-label="Copy link">
+              <svg viewBox="0 0 24 24"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+              Copy Link
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -791,6 +822,27 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
           <p>Opportunity follows infrastructure. Roads, electricity, internet connectivity, financial services — these are the foundations on which economic activity is built. Their uneven distribution across Nigerian space is perhaps the most consequential geographic fact of contemporary Nigerian life.</p>
           <p>Addressing youth unemployment without addressing the spatial concentration of infrastructure is addressing symptoms while leaving the disease untouched.</p>
         </div>
+        <div class="share-bar">
+          <div class="share-bar-label">Share this article</div>
+          <div class="share-btns">
+            <a class="share-btn" id="share-twitter-post2" href="#" target="_blank" rel="noopener" aria-label="Share on Twitter/X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter / X
+            </a>
+            <a class="share-btn" id="share-facebook-post2" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a class="share-btn" id="share-linkedin-post2" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <button class="share-btn" id="copy-post2" onclick="copyLink('post2','copy-post2')" aria-label="Copy link">
+              <svg viewBox="0 0 24 24"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+              Copy Link
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -806,6 +858,27 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
           <h3>Informal Settlements as Geography</h3>
           <p>Informal settlements are not planning failures — they are planning responses. When formal housing is priced beyond the reach of the majority, people create their own spatial solutions. Ajegunle, Makoko, and hundreds of similar communities across Nigerian cities represent the geographic ingenuity of people systematically excluded from the formal city.</p>
           <p>Any serious housing policy must start by recognising this and engaging with informal settlements as legitimate urban space, not problems to be erased.</p>
+        </div>
+        <div class="share-bar">
+          <div class="share-bar-label">Share this article</div>
+          <div class="share-btns">
+            <a class="share-btn" id="share-twitter-post3" href="#" target="_blank" rel="noopener" aria-label="Share on Twitter/X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter / X
+            </a>
+            <a class="share-btn" id="share-facebook-post3" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a class="share-btn" id="share-linkedin-post3" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <button class="share-btn" id="copy-post3" onclick="copyLink('post3','copy-post3')" aria-label="Copy link">
+              <svg viewBox="0 0 24 24"><path d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+              Copy Link
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1178,19 +1251,34 @@ function showPage(name, fromHash) {
   });
   syncMobileActive(name);
   window.scrollTo(0,0);
-  closePost();
+  // Only reset blog view if NOT opening a post
+  if (name !== 'blog') {
+    document.querySelectorAll('.blog-full').forEach(p => p.classList.remove('active'));
+    if (document.getElementById('blog-list')) document.getElementById('blog-list').classList.remove('hidden');
+  }
   if (!fromHash) window.location.hash = name === 'home' ? '' : name;
 }
 
-window.addEventListener('hashchange', () => {
-  const hash = window.location.hash.replace('#', '') || 'home';
-  showPage(hash, true);
-});
+function handleHash(fromEvent) {
+  const raw  = window.location.hash.replace('#', '') || 'home';
+  // Handle blog post deep links: #blog/education-in-nigeria
+  if (raw.startsWith('blog/')) {
+    const slug = raw.replace('blog/', '');
+    showPage('blog', true);
+    if (POST_MAP[slug]) {
+      // Small delay so page renders before opening post
+      setTimeout(() => openPost(POST_MAP[slug].id, slug), fromEvent ? 0 : 50);
+    } else {
+      closePost();
+    }
+    return;
+  }
+  showPage(raw, true);
+}
 
-window.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash.replace('#', '') || 'home';
-  showPage(hash, true);
-});
+window.addEventListener('hashchange', () => handleHash(true));
+
+window.addEventListener('DOMContentLoaded', () => handleHash(false));
 
 function filterPortfolio(cat, btn) {
   document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
@@ -1201,16 +1289,67 @@ function filterPortfolio(cat, btn) {
   else { all.forEach(id => document.getElementById(id).style.display = 'none'); document.getElementById(map[cat]).style.display = ''; }
 }
 
-function openPost(id) {
+function openPost(id, slug) {
+  // Update hash
+  window.location.hash = 'blog/' + slug;
   document.getElementById('blog-list').classList.add('hidden');
   document.querySelectorAll('.blog-full').forEach(p => p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
+  // Update share links dynamically
+  updateShareLinks(id, slug);
 }
 
 function closePost() {
   document.querySelectorAll('.blog-full').forEach(p => p.classList.remove('active'));
   document.getElementById('blog-list').classList.remove('hidden');
+  // Return hash to blog page
+  window.location.hash = 'blog';
+}
+
+// Map slug → { id, title }
+const POST_MAP = {
+  'education-in-nigeria':    { id: 'post1', title: 'The State of Education in Nigeria: A Geographic Perspective' },
+  'youth-unemployment-nigeria': { id: 'post2', title: 'Youth Unemployment and the Geography of Opportunity in Nigeria' },
+  'housing-crisis-nigeria':  { id: 'post3', title: 'Housing Crisis in Nigerian Cities: Who Is Building for Whom?' },
+};
+
+function updateShareLinks(postId, slug) {
+  const title = POST_MAP[slug] ? POST_MAP[slug].title : document.title;
+  const url   = window.location.origin + window.location.pathname + '#blog/' + slug;
+  const enc   = encodeURIComponent;
+
+  const tw = document.getElementById('share-twitter-' + postId);
+  const fb = document.getElementById('share-facebook-' + postId);
+  const li = document.getElementById('share-linkedin-' + postId);
+
+  if (tw) tw.href = `https://twitter.com/intent/tweet?text=${enc(title)}&url=${enc(url)}`;
+  if (fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
+  if (li) li.href = `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`;
+}
+
+function copyLink(postId, btnId) {
+  const slug = Object.keys(POST_MAP).find(s => POST_MAP[s].id === postId) || postId;
+  const url  = window.location.origin + window.location.pathname + '#blog/' + slug;
+  const btn  = document.getElementById(btnId);
+
+  navigator.clipboard.writeText(url).then(() => {
+    btn.classList.add('copied');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Link Copied!';
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2500);
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.classList.add('copied');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:currentColor"><path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Link Copied!';
+    setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2500);
+  });
 }
 
 // ── VOLUNTEERING LIGHTBOX ──
