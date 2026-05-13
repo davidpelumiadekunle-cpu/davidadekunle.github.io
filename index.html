@@ -367,14 +367,89 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 .vol-lb-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(245,240,232,.6);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;transition:all .2s;}
 .vol-lb-btn:hover{border-color:var(--terra);color:var(--terra);}
 
-/* RESPONSIVE */
-@media(max-width:860px){
-  .vol-grid{grid-template-columns:1fr;}
+/* ── HAMBURGER BUTTON ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 2px;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.nav-hamburger:hover { background: rgba(255,255,255,.08); }
+.nav-hamburger:focus { outline: 2px solid var(--terra); outline-offset: 2px; }
+.nav-hamburger .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--paper);
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease, width .3s ease;
+  transform-origin: center;
+}
+/* Animate to X when open */
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; width: 0; }
+.nav-hamburger[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE DROPDOWN MENU ── */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 2px solid var(--terra);
+  z-index: 999;
+  flex-direction: column;
+  padding: .5rem 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  /* Slide-down animation */
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+.nav-mobile-menu.open {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+.nav-mobile-menu .nav-btn {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  padding: .85rem 1.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  width: 100%;
+  color: rgba(245,240,232,.6);
+}
+.nav-mobile-menu .nav-btn:last-child { border-bottom: none; }
+.nav-mobile-menu .nav-btn:hover { background: rgba(255,255,255,.05); color: var(--paper); }
+.nav-mobile-menu .nav-btn.active { color: var(--terra); background: rgba(184,76,30,.08); }
+.nav-mobile-menu .nav-btn:focus { outline: none; background: rgba(184,76,30,.12); color: var(--terra); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav { padding: 0 1.25rem; }
+  .nav-logo { font-size: .82rem; }
+  /* Hide desktop menu, show hamburger */
+  .nav-menu { display: none !important; }
+  .nav-hamburger { display: flex; }
 }
 
+@media(max-width:860px){
+  .vol-grid{grid-template-columns:1fr;}
   .nav{padding:0 1rem;}
-  .nav-logo{font-size:.8rem;}
-  .nav-btn{font-size:.52rem;padding:.5rem .5rem;letter-spacing:.05em;}
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-l{padding:2.5rem 1.5rem;min-height:50vh;}
   .hero-r{padding:2.5rem 1.5rem;}
@@ -398,20 +473,54 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <div class="nav-logo" onclick="showPage('home')">David P. <span>Adekunle</span></div>
-  <div class="nav-menu">
-    <button class="nav-btn active" onclick="showPage('home')">Home</button>
-    <button class="nav-btn" onclick="showPage('about')">About</button>
-    <button class="nav-btn" onclick="showPage('portfolio')">Portfolio</button>
-    <button class="nav-btn" onclick="showPage('books')">Books</button>
-    <button class="nav-btn" onclick="showPage('blog')">Blog</button>
-    <button class="nav-btn" onclick="showPage('cv')">CV</button>
-    <button class="nav-btn" onclick="showPage('services')">Services</button>
-    <button class="nav-btn" onclick="showPage('volunteering')">Volunteering</button>
-    <button class="nav-btn" onclick="showPage('contact')">Contact</button>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-logo" onclick="showPage('home')" role="button" tabindex="0" aria-label="Go to home page">David P. <span>Adekunle</span></div>
+
+  <!-- Desktop menu -->
+  <div class="nav-menu" role="menubar">
+    <button class="nav-btn active" onclick="showPage('home')" role="menuitem">Home</button>
+    <button class="nav-btn" onclick="showPage('about')" role="menuitem">About</button>
+    <button class="nav-btn" onclick="showPage('portfolio')" role="menuitem">Portfolio</button>
+    <button class="nav-btn" onclick="showPage('books')" role="menuitem">Books</button>
+    <button class="nav-btn" onclick="showPage('blog')" role="menuitem">Blog</button>
+    <button class="nav-btn" onclick="showPage('cv')" role="menuitem">CV</button>
+    <button class="nav-btn" onclick="showPage('services')" role="menuitem">Services</button>
+    <button class="nav-btn" onclick="showPage('volunteering')" role="menuitem">Volunteering</button>
+    <button class="nav-btn" onclick="showPage('contact')" role="menuitem">Contact</button>
   </div>
+
+  <!-- Hamburger button (mobile only) -->
+  <button
+    class="nav-hamburger"
+    id="nav-hamburger"
+    aria-label="Open navigation menu"
+    aria-expanded="false"
+    aria-controls="nav-mobile-menu"
+    onclick="toggleMobileMenu()"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
 </nav>
+
+<!-- Mobile dropdown menu -->
+<div
+  class="nav-mobile-menu"
+  id="nav-mobile-menu"
+  role="menu"
+  aria-label="Mobile navigation"
+>
+  <button class="nav-btn active" onclick="mobileNav('home')" role="menuitem">Home</button>
+  <button class="nav-btn" onclick="mobileNav('about')" role="menuitem">About</button>
+  <button class="nav-btn" onclick="mobileNav('portfolio')" role="menuitem">Portfolio</button>
+  <button class="nav-btn" onclick="mobileNav('books')" role="menuitem">Books</button>
+  <button class="nav-btn" onclick="mobileNav('blog')" role="menuitem">Blog</button>
+  <button class="nav-btn" onclick="mobileNav('cv')" role="menuitem">CV</button>
+  <button class="nav-btn" onclick="mobileNav('services')" role="menuitem">Services</button>
+  <button class="nav-btn" onclick="mobileNav('volunteering')" role="menuitem">Volunteering</button>
+  <button class="nav-btn" onclick="mobileNav('contact')" role="menuitem">Contact</button>
+</div>
 
 
 <!-- ═══════════════════════ HOME ═══════════════════════ -->
@@ -1132,6 +1241,11 @@ function showPage(name) {
   document.querySelectorAll('.nav-btn').forEach(b => {
     if(b.textContent.trim().toLowerCase() === name.toLowerCase()) b.classList.add('active');
   });
+  // Sync mobile menu highlight
+  document.querySelectorAll('#nav-mobile-menu .nav-btn').forEach(b => {
+    const oc = b.getAttribute('onclick') || '';
+    b.classList.toggle('active', oc.includes("'" + name + "'"));
+  });
   window.scrollTo(0,0);
   // close any open blog post
   closePost();
@@ -1204,6 +1318,57 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') lbNext();
   if (e.key === 'Escape') closeLightbox();
 });
+
+/* ── HAMBURGER MENU ── */
+function toggleMobileMenu() {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close navigation menu');
+    menu.querySelector('.nav-btn').focus();
+  }
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  menu.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', 'Open navigation menu');
+}
+function mobileNav(name) {
+  showPage(name);
+  closeMobileMenu();
+}
+// Close on outside click
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('nav-mobile-menu');
+  const btn  = document.getElementById('nav-hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+// Close on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeMobileMenu(); }
+});
+// Arrow key nav inside mobile menu
+document.getElementById('nav-mobile-menu').addEventListener('keydown', function(e) {
+  const items = Array.from(this.querySelectorAll('.nav-btn'));
+  const idx = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(idx + 1) % items.length].focus(); }
+  if (e.key === 'ArrowUp')   { e.preventDefault(); items[(idx - 1 + items.length) % items.length].focus(); }
+});
+// Sync active highlight on mobile menu
+function syncMobileActive(name) {
+  document.querySelectorAll('#nav-mobile-menu .nav-btn').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('onclick').includes("'" + name + "'"));
+  });
+}
 </script>
 </body>
 </html>
