@@ -273,20 +273,38 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
 /* ═══════════════════════════════
    CV PAGE
 ═══════════════════════════════ */
-.cv-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:start;}
-.cv-sidebar{position:sticky;top:5rem;}
-.cv-download-box{background:var(--ink);padding:2rem;margin-bottom:2rem;text-align:center;}
-.cv-download-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--paper);margin-bottom:.4rem;}
-.cv-download-sub{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.4);margin-bottom:1.2rem;}
-.cv-section{margin-bottom:3rem;}
-.cv-sec-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:1.2rem;display:flex;align-items:center;gap:.75rem;}
+/* ── CV PAGE ── */
+.cv-wrap{max-width:860px;margin:0 auto;padding:4rem 2.5rem;}
+.cv-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.cv-iframe-wrap{position:relative;width:100%;padding-bottom:75%;margin-bottom:3.5rem;border:1px solid var(--dust);background:var(--ink);overflow:hidden;}
+.cv-iframe-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.cv-iframe-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.35);text-align:center;padding:1.5rem;}
+.cv-section{margin-bottom:3.5rem;}
+.cv-sec-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;}
 .cv-sec-title::after{content:'';flex:1;height:1px;background:var(--dust);}
-.cv-item{padding:1.25rem 0;border-bottom:1px solid var(--dust);}
+.cv-timeline{display:flex;flex-direction:column;gap:0;}
+.cv-item{display:grid;grid-template-columns:140px 1fr;gap:0 2rem;padding:1.5rem 0;border-bottom:1px solid var(--dust);position:relative;}
 .cv-item:last-child{border-bottom:none;}
-.cv-item-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
-.cv-item-org{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--terra);margin-bottom:.2rem;}
-.cv-item-date{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);margin-bottom:.4rem;}
-.cv-item-desc{font-size:.85rem;line-height:1.65;color:var(--muted);}
+.cv-item::before{content:'';position:absolute;left:139px;top:1.9rem;width:9px;height:9px;border-radius:50%;background:var(--terra);border:2px solid var(--paper);box-shadow:0 0 0 1px var(--terra);}
+.cv-item-date{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;color:var(--muted);padding-top:.15rem;text-align:right;line-height:1.6;}
+.cv-item-body{padding-left:1.5rem;border-left:1px solid var(--dust);}
+.cv-item-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;line-height:1.3;}
+.cv-item-org{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.08em;color:var(--terra);margin-bottom:.35rem;}
+.cv-item-desc{font-size:.85rem;line-height:1.7;color:var(--muted);}
+.cv-skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.25rem;}
+.cv-skill-group{border:1px solid var(--dust);padding:1.5rem;}
+.cv-sg-title{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem;}
+.cv-skill-list{display:flex;flex-wrap:wrap;gap:.5rem;}
+.cv-skill-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid var(--dust);color:var(--muted);}
+@media(max-width:640px){
+  .cv-wrap{padding:3rem 1.5rem;}
+  .cv-item{grid-template-columns:1fr;gap:.3rem;}
+  .cv-item::before{display:none;}
+  .cv-item-date{text-align:left;}
+  .cv-item-body{padding-left:0;border-left:none;border-top:2px solid var(--terra);padding-top:.75rem;}
+  .cv-actions{flex-direction:column;}
+  .cv-actions .btn{text-align:center;}
+}
 
 /* ═══════════════════════════════
    TESTIMONIALS
@@ -418,8 +436,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
   .pg-hd{padding:3rem 1.5rem 2.5rem;}
   .fbar{padding:0 1.5rem;}
   .wrap{padding:3rem 1.5rem;}
-  .about-grid,.cv-grid,.contact-grid,.blog-grid{grid-template-columns:1fr;}
-  .about-sidebar,.cv-sidebar,.blog-sidebar{position:static;}
+  .about-grid,.contact-grid,.blog-grid{grid-template-columns:1fr;}
+  .about-sidebar,.blog-sidebar{position:static;}
   .book-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1.25rem;}
   .avail-grid{grid-template-columns:1fr;}
   footer{flex-direction:column;gap:.6rem;text-align:center;padding:1.5rem;}
@@ -951,70 +969,229 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding:
     <div class="pg-hd-inner">
       <div class="pg-label">Curriculum Vitae</div>
       <h1 class="pg-title">My <em>CV</em></h1>
-      <p class="pg-desc">Academic qualifications, professional experience, certifications, and achievements.</p>
+      <p class="pg-desc">Geospatial Analyst · AI Content Specialist · Research & Education · 4+ years professional experience.</p>
     </div>
   </section>
 
-  <div class="wrap">
-    <div class="cv-grid">
-      <div class="cv-sidebar">
-        <div class="cv-download-box">
-          <div class="cv-download-title">Download Full CV</div>
-          <div class="cv-download-sub">PDF Format · Updated 2026</div>
-          <button class="btn btn-solid" style="width:100%;text-align:center;" onclick="alert('Upload your CV PDF to GitHub and link it here')">Download CV →</button>
-        </div>
-        <div style="border:1px solid var(--dust);padding:1.5rem;">
-          <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem;">Quick Facts</div>
-          <div style="display:flex;flex-direction:column;gap:.75rem;">
-            <div><div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Field</div><div style="font-size:.9rem;color:var(--ink);">Geography & Education</div></div>
-            <div><div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Nationality</div><div style="font-size:.9rem;color:var(--ink);">Nigerian</div></div>
-            <div><div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Languages</div><div style="font-size:.9rem;color:var(--ink);">English (Fluent)</div></div>
-          </div>
-        </div>
-      </div>
+  <div class="cv-wrap">
 
-      <div>
-        <div class="cv-section">
-          <div class="cv-sec-title">Education</div>
-          <div class="cv-item">
-            <div class="cv-item-title">Your Degree Title Here</div>
-            <div class="cv-item-org">Your University Name</div>
-            <div class="cv-item-date">Year – Year</div>
-            <div class="cv-item-desc">Brief description of your studies, specialisation, or dissertation topic.</div>
-          </div>
-          <div class="cv-item">
-            <div class="cv-item-title">Secondary Education</div>
-            <div class="cv-item-org">Your Secondary School Name</div>
-            <div class="cv-item-date">Year</div>
-            <div class="cv-item-desc">WAEC / NECO — Add your results or notable achievements.</div>
-          </div>
-        </div>
+    <!-- ACTION BUTTONS -->
+    <div class="cv-actions">
+      <a href="https://drive.google.com/file/d/1smJeQZLDQG0dc0ShQdArJhzIw_Yt4Rn3/view" target="_blank" class="btn btn-solid">View Full CV →</a>
+      <a href="https://drive.google.com/uc?export=download&id=1smJeQZLDQG0dc0ShQdArJhzIw_Yt4Rn3" target="_blank" class="btn btn-ghost">Download CV ↓</a>
+    </div>
 
-        <div class="cv-section">
-          <div class="cv-sec-title">Experience</div>
-          <div class="cv-item">
-            <div class="cv-item-title">Add Your Experience Here</div>
-            <div class="cv-item-org">Organisation / Institution Name</div>
-            <div class="cv-item-date">Year – Present</div>
-            <div class="cv-item-desc">Describe your role, responsibilities, and key achievements.</div>
+    <!-- EMBEDDED CV VIEWER -->
+    <div class="cv-iframe-wrap">
+      <iframe
+        src="https://drive.google.com/file/d/1smJeQZLDQG0dc0ShQdArJhzIw_Yt4Rn3/preview"
+        allow="autoplay"
+        loading="lazy"
+        title="David P. Adekunle CV"
+      ></iframe>
+    </div>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Professional Summary</div>
+      <p style="font-size:.95rem;line-height:1.85;color:var(--muted);border-left:3px solid var(--gold);padding-left:1.5rem;">
+        Research-trained geographer and experienced educator with 4+ years of professional experience spanning geospatial analysis, data verification, instructional content design, and economics education. Skilled at creating structured domain-specific deliverables, evaluating information quality, and diagnosing complex problems. Works independently and asynchronously to meet deadlines. Currently applying geospatial and analytical expertise in a professional technology environment.
+      </p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Professional Experience</div>
+      <div class="cv-timeline">
+
+        <div class="cv-item">
+          <div class="cv-item-date">2023 – Present</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Geospatial Analyst</div>
+            <div class="cv-item-org">Terravanta Geospatial Technology · Ibadan, Nigeria</div>
+            <div class="cv-item-desc">
+              Process and analyse geospatial datasets to generate accurate, structured deliverables for land use, terrain, and infrastructure mapping projects. Diagnose data quality issues in spatial records and implement corrections to ensure integrity of outputs. Collaborate with team members to review and validate peer-produced geospatial work, maintaining research standards across projects. Produce written technical reports and visual presentations communicating findings clearly to both technical and non-technical stakeholders.
+            </div>
           </div>
         </div>
 
-        <div class="cv-section">
-          <div class="cv-sec-title">Certifications</div>
-          <div class="cv-item">
-            <div class="cv-item-title">Add Your Certifications Here</div>
-            <div class="cv-item-org">Issuing Body</div>
-            <div class="cv-item-date">Year</div>
+        <div class="cv-item">
+          <div class="cv-item-date">2021 – 2022</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Instructor (NYSC)</div>
+            <div class="cv-item-org">Victory Christian College · Abeokuta</div>
+            <div class="cv-item-desc">
+              Developed structured instructional deliverables including lesson plans, notes, and learning materials. Evaluated student outputs and provided structured feedback to drive improvement. Facilitated computer-based skills training, demonstrating digital literacy. Recognised with Award of Outstanding Excellence, NYSC SDGs Abeokuta South, 2022.
+            </div>
           </div>
         </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">2020 – 2021</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Instructor</div>
+            <div class="cv-item-org">Hartford School · Apete, Ibadan</div>
+            <div class="cv-item-desc">
+              Designed and delivered curriculum across Commerce, Business Studies, Economics, and Agricultural Science. Established measurable learning objectives for all activities. Communicated student progress and institutional needs to management and parents through regular written and verbal reporting.
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">2020</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Intern — Survey & GIS</div>
+            <div class="cv-item-org">Office of the Surveyor General · Oyo State</div>
+            <div class="cv-item-desc">
+              Verified survey data and records for accuracy, demonstrating rigorous attention to detail in data quality review. Maintained and organised spatial data archives; charted survey plans for legal instruments including mortgages, leases, and sub-leases.
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+
+    <!-- EDUCATION -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Education</div>
+      <div class="cv-timeline">
+
+        <div class="cv-item">
+          <div class="cv-item-date">2016 – 2020</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">B.Sc. Geography</div>
+            <div class="cv-item-org">University of Ibadan · Nigeria</div>
+            <div class="cv-item-desc">Coursework in spatial analysis, research methodology, environmental science, and quantitative data methods. Second Class Honours.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LEADERSHIP -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Leadership & Governance</div>
+      <div class="cv-timeline">
+
+        <div class="cv-item">
+          <div class="cv-item-date">2021 – 2022</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Vice President</div>
+            <div class="cv-item-org">NYSC SDGs · Abeokuta South</div>
+            <div class="cv-item-desc">Coordinated community development initiatives across multiple workstreams.</div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">2017 – 2020</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Treasurer</div>
+            <div class="cv-item-org">Faculty of Social Sciences Students Association (FATSSSA) · University of Ibadan</div>
+            <div class="cv-item-desc">Managed financial records and reporting for a large student body.</div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">2017 – 2018</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Honourable Member</div>
+            <div class="cv-item-org">Kenneth Mellanby Hall Legislative Council & SRC · University of Ibadan Students' Union</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Certifications & Training</div>
+      <div class="cv-timeline">
+
+        <div class="cv-item">
+          <div class="cv-item-date">YALI Network</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">The Climate Crisis: Addressing 5 Key Areas of Change</div>
+            <div class="cv-item-org">YALI Network</div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">YALI Network</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Fundamentals of Starting and Running a Business</div>
+            <div class="cv-item-org">YALI Network</div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">Leaders Fort</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Basic Leadership Certification</div>
+            <div class="cv-item-org">Leaders Fort Company</div>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="cv-item-date">Jobberman</div>
+          <div class="cv-item-body">
+            <div class="cv-item-title">Soft Skills Training Certificate</div>
+            <div class="cv-item-org">Jobberman</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="cv-section">
+      <div class="cv-sec-title">Core Competencies & Skills</div>
+      <div class="cv-skills-grid">
+
+        <div class="cv-skill-group">
+          <div class="cv-sg-title">Domain Knowledge</div>
+          <div class="cv-skill-list">
+            <span class="cv-skill-tag">Geography & GIS</span>
+            <span class="cv-skill-tag">Spatial Data Analysis</span>
+            <span class="cv-skill-tag">Economics & Business</span>
+            <span class="cv-skill-tag">Environmental Science</span>
+            <span class="cv-skill-tag">Curriculum Design</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-group">
+          <div class="cv-sg-title">Technical Skills</div>
+          <div class="cv-skill-list">
+            <span class="cv-skill-tag">Geospatial Data Processing</span>
+            <span class="cv-skill-tag">Research & Survey Design</span>
+            <span class="cv-skill-tag">Data Analysis & Presentation</span>
+            <span class="cv-skill-tag">Graphics Design</span>
+            <span class="cv-skill-tag">Digital Literacy</span>
+            <span class="cv-skill-tag">QGIS / ArcGIS</span>
+            <span class="cv-skill-tag">Microsoft Excel</span>
+            <span class="cv-skill-tag">SPSS</span>
+          </div>
+        </div>
+
+        <div class="cv-skill-group">
+          <div class="cv-sg-title">Professional Skills</div>
+          <div class="cv-skill-list">
+            <span class="cv-skill-tag">Written & Oral Communication</span>
+            <span class="cv-skill-tag">Critical Thinking</span>
+            <span class="cv-skill-tag">Problem Solving</span>
+            <span class="cv-skill-tag">Independent & Async Work</span>
+            <span class="cv-skill-tag">Peer Review</span>
+            <span class="cv-skill-tag">Instructional Design</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
   <footer>
     <div class="ft-mark">David P. Adekunle</div>
-    <div class="ft-copy">© 2026 · Geographer · Nigeria</div>
+    <div class="ft-copy">© 2026 · Geospatial Analyst · Geographer · Nigeria</div>
   </footer>
 </div>
 
