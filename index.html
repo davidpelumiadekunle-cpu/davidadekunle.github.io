@@ -1,23 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://davidadekunle.com.ng/">
-<meta property="og:title" content="David P. Adekunle | Geographer · Writer · Author — Nigeria">
-<meta property="og:description" content="Nigerian geographer, research writer, and author exploring geography, education, and development in Nigeria.">
-<meta property="og:image" content="https://davidadekunle.com.ng/preview.jpg">
-<meta property="og:site_name" content="David P. Adekunle">
+<!-- ═══════════════════════════════════════════════════════
+     PRIMARY SEO META — David P. Adekunle Portfolio
+     Dynamically updated per page via updateSEO()
+     Base/fallback values are set here for the Home page
+════════════════════════════════════════════════════════ -->
 
-<!-- Twitter Card -->
+<!-- Core Identity -->
+<title id="meta-title">David P. Adekunle | Geographer · Writer · Author — Nigeria</title>
+<meta name="description" id="meta-description" content="David P. Adekunle is a Nigerian geographer, research writer, and author exploring social geography, education equity, and national development in Nigeria. Based in Nigeria, West Africa.">
+<meta name="keywords" id="meta-keywords" content="David P. Adekunle, David Adekunle geographer, Nigerian geographer, research writer Nigeria, social geography Nigeria, education Nigeria, development Nigeria, GIS Nigeria, Nigerian author, Adekunle portfolio">
+<meta name="author" content="David P. Adekunle">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+<meta name="geo.region" content="NG">
+<meta name="geo.placename" content="Nigeria">
+<meta name="geo.position" content="6.5244;3.3792">
+<meta name="ICBM" content="6.5244, 3.3792">
+<link rel="canonical" id="meta-canonical" href="https://davidadekunle.com.ng/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" id="og-type" content="website">
+<meta property="og:site_name" content="David P. Adekunle">
+<meta property="og:locale" content="en_NG">
+<meta property="og:url" id="og-url" content="https://davidadekunle.com.ng/">
+<meta property="og:title" id="og-title" content="David P. Adekunle | Geographer · Writer · Author — Nigeria">
+<meta property="og:description" id="og-description" content="David P. Adekunle is a Nigerian geographer, research writer, and author exploring social geography, education equity, and national development in Nigeria.">
+<meta property="og:image" id="og-image" content="https://davidadekunle.com.ng/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David P. Adekunle — Nigerian Geographer, Writer & Author">
+
+<!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://davidadekunle.com.ng/">
-<meta name="twitter:title" content="David P. Adekunle | Geographer · Writer · Author — Nigeria">
-<meta name="twitter:description" content="Nigerian geographer, research writer, and author exploring geography, education, and development in Nigeria.">
-<meta name="twitter:image" content="https://davidadekunle.com.ng/preview.jpg">
+<meta name="twitter:site" content="@DavidAdekunle">
+<meta name="twitter:creator" content="@DavidAdekunle">
+<meta name="twitter:url" id="tw-url" content="https://davidadekunle.com.ng/">
+<meta name="twitter:title" id="tw-title" content="David P. Adekunle | Geographer · Writer · Author — Nigeria">
+<meta name="twitter:description" id="tw-description" content="David P. Adekunle is a Nigerian geographer, research writer, and author exploring social geography, education equity, and national development in Nigeria.">
+<meta name="twitter:image" id="tw-image" content="https://davidadekunle.com.ng/preview.jpg">
+<meta name="twitter:image:alt" content="David P. Adekunle — Nigerian Geographer, Writer & Author">
+
+<!-- Article / Blog (populated dynamically for blog posts) -->
+<meta property="article:author" id="article-author" content="David P. Adekunle">
+<meta property="article:publisher" content="https://davidadekunle.com.ng/">
+<meta property="article:section" id="article-section" content="">
+<meta property="article:tag" id="article-tag" content="">
+<meta property="article:published_time" id="article-published" content="">
+<meta property="article:modified_time" id="article-modified" content="">
+
+<!-- Person / Profile structured data (JSON-LD) -->
+<script type="application/ld+json" id="ld-person">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David P. Adekunle",
+  "alternateName": "David Pelumi Adekunle",
+  "url": "https://davidadekunle.com.ng/",
+  "image": "https://davidadekunle.com.ng/preview.jpg",
+  "sameAs": [
+    "https://www.linkedin.com/in/david-p-adekunle-ba2929190",
+    "https://www.facebook.com/profile.php?id=100005131481601",
+    "https://github.com/davidpelumadekunle-cpu"
+  ],
+  "jobTitle": ["Geographer", "Research Writer", "Author"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Independent / Freelance"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "NG",
+    "addressRegion": "Nigeria"
+  },
+  "description": "David P. Adekunle is a Nigerian geographer, research writer, and author specialising in social geography, education equity, and national development in Nigeria.",
+  "knowsAbout": ["Social Geography", "Education Systems", "Spatial Development", "GIS", "Research Writing", "Nigerian Development", "Urban Planning"],
+  "email": "davidpelumiadekunle@gmail.com",
+  "telephone": "+2349035060404",
+  "nationality": {
+    "@type": "Country",
+    "name": "Nigeria"
+  }
+}
+</script>
+
+<!-- WebSite structured data (enables Google sitelinks search box) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "David P. Adekunle",
+  "alternateName": "David P. Adekunle — Geographer, Writer & Author",
+  "url": "https://davidadekunle.com.ng/",
+  "description": "Official portfolio and blog of David P. Adekunle — Nigerian geographer, research writer, and author.",
+  "inLanguage": "en-NG",
+  "author": {
+    "@type": "Person",
+    "name": "David P. Adekunle"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://davidadekunle.com.ng/#blog?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- BreadcrumbList (updated dynamically per page) -->
+<script type="application/ld+json" id="ld-breadcrumb">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://davidadekunle.com.ng/"
+    }
+  ]
+}
+</script>
+
 <title>David P. Adekunle | Geographer · Writer · Author — Nigeria</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -1750,6 +1863,416 @@ function startSlideshows() {
   });
 }
 window.addEventListener('load', startSlideshows);
+
+// ═══════════════════════════════════════════════════════
+//  DYNAMIC SEO ENGINE — David P. Adekunle Portfolio
+//  Updates <head> meta tags, OG, Twitter, JSON-LD
+//  on every page transition and blog post open
+// ═══════════════════════════════════════════════════════
+
+const BASE_URL = 'https://davidadekunle.com.ng';
+const DEFAULT_IMAGE = `${BASE_URL}/preview.jpg`;
+const AUTHOR = 'David P. Adekunle';
+
+// Per-page SEO config
+const PAGE_SEO = {
+  home: {
+    title: `${AUTHOR} | Geographer · Writer · Author — Nigeria`,
+    description: `${AUTHOR} is a Nigerian geographer, research writer, and author exploring social geography, education equity, and national development in Nigeria. Based in Nigeria, West Africa.`,
+    keywords: 'David P. Adekunle, David Adekunle geographer, Nigerian geographer, research writer Nigeria, social geography Nigeria, education Nigeria, development Nigeria, GIS Nigeria, Nigerian author',
+    url: `${BASE_URL}/`,
+    type: 'website',
+    breadcrumbs: [{ name: 'Home', url: `${BASE_URL}/` }],
+    ldType: 'WebPage',
+    ldName: 'Home — David P. Adekunle',
+  },
+  about: {
+    title: `About David P. Adekunle | Nigerian Geographer & Research Writer`,
+    description: `Learn about David P. Adekunle — Nigerian geographer, research writer, and author. Discover his background, research interests, and mission to make geography matter beyond the classroom.`,
+    keywords: 'about David P. Adekunle, Nigerian geographer biography, David Adekunle background, geographer Nigeria, social geography researcher Nigeria',
+    url: `${BASE_URL}/#about`,
+    type: 'profile',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'About', url: `${BASE_URL}/#about` },
+    ],
+    ldType: 'AboutPage',
+    ldName: 'About David P. Adekunle',
+  },
+  portfolio: {
+    title: `Portfolio | David P. Adekunle — Research, Maps & Publications`,
+    description: `Explore the portfolio of David P. Adekunle: research articles, spatial maps, policy reports, and academic projects on Nigerian geography, education, and development.`,
+    keywords: 'David P. Adekunle portfolio, Nigerian geography research, spatial analysis Nigeria, education policy Nigeria, GIS maps Nigeria, David Adekunle publications',
+    url: `${BASE_URL}/#portfolio`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Portfolio', url: `${BASE_URL}/#portfolio` },
+    ],
+    ldType: 'CollectionPage',
+    ldName: 'Portfolio — David P. Adekunle',
+  },
+  books: {
+    title: `Books by David P. Adekunle | Nigerian Author & Geographer`,
+    description: `Browse books authored by David P. Adekunle — Nigerian geographer and writer. Publications covering geography, education, development, and social issues in Nigeria.`,
+    keywords: 'David P. Adekunle books, Nigerian author geography, books on Nigeria geography, David Adekunle publications, Nigerian development books',
+    url: `${BASE_URL}/#books`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Books', url: `${BASE_URL}/#books` },
+    ],
+    ldType: 'CollectionPage',
+    ldName: 'Books — David P. Adekunle',
+  },
+  blog: {
+    title: `Blog | David P. Adekunle — Geography, Education & Nigeria`,
+    description: `Read insightful articles by David P. Adekunle on Nigerian geography, education equity, spatial development, and social issues. Commentary grounded in research and maps.`,
+    keywords: 'David P. Adekunle blog, Nigerian geography articles, education Nigeria blog, development commentary Nigeria, social geography writing Nigeria',
+    url: `${BASE_URL}/#blog`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Blog', url: `${BASE_URL}/#blog` },
+    ],
+    ldType: 'Blog',
+    ldName: 'Blog — David P. Adekunle',
+  },
+  cv: {
+    title: `CV & Résumé | David P. Adekunle — Geographer & Research Writer`,
+    description: `View the curriculum vitae of David P. Adekunle: education, research experience, skills, certifications, and professional history as a Nigerian geographer and writer.`,
+    keywords: 'David P. Adekunle CV, David Adekunle resume, Nigerian geographer resume, geography researcher CV Nigeria, research writer Nigeria',
+    url: `${BASE_URL}/#cv`,
+    type: 'profile',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'CV', url: `${BASE_URL}/#cv` },
+    ],
+    ldType: 'WebPage',
+    ldName: 'CV — David P. Adekunle',
+  },
+  services: {
+    title: `Services | David P. Adekunle — Research Writing, GIS & Consulting`,
+    description: `Hire David P. Adekunle for research writing, GIS & spatial analysis, speaking engagements, editorial projects, and consulting on Nigerian geography and education.`,
+    keywords: 'David P. Adekunle services, hire Nigerian geographer, research writing Nigeria, GIS consulting Nigeria, geography speaking Nigeria, David Adekunle consulting',
+    url: `${BASE_URL}/#services`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Services', url: `${BASE_URL}/#services` },
+    ],
+    ldType: 'WebPage',
+    ldName: 'Services — David P. Adekunle',
+  },
+  volunteering: {
+    title: `Volunteering | David P. Adekunle — Community & Environmental Work`,
+    description: `David P. Adekunle's volunteering history: NYSC SDG community service, environmental education, plastic pollution awareness, and civic engagement in Nigeria.`,
+    keywords: 'David P. Adekunle volunteering, NYSC volunteering Nigeria, SDG community service Nigeria, environmental education Nigeria, David Adekunle community work',
+    url: `${BASE_URL}/#volunteering`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Volunteering', url: `${BASE_URL}/#volunteering` },
+    ],
+    ldType: 'WebPage',
+    ldName: 'Volunteering — David P. Adekunle',
+  },
+  contact: {
+    title: `Contact David P. Adekunle | Geographer, Writer & Author — Nigeria`,
+    description: `Get in touch with David P. Adekunle for research collaborations, writing commissions, speaking engagements, or consultations. Based in Nigeria, available worldwide.`,
+    keywords: 'contact David P. Adekunle, hire Nigerian geographer, David Adekunle email, research writer contact Nigeria, geography consultant contact Nigeria',
+    url: `${BASE_URL}/#contact`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Contact', url: `${BASE_URL}/#contact` },
+    ],
+    ldType: 'ContactPage',
+    ldName: 'Contact — David P. Adekunle',
+  },
+  skills: {
+    title: `Skills | David P. Adekunle — GIS, Research & Writing Expertise`,
+    description: `Explore the skills of David P. Adekunle: GIS & spatial analysis, academic writing, qualitative research, data visualisation, and more — a Nigerian geographer's toolkit.`,
+    keywords: 'David P. Adekunle skills, GIS skills Nigeria, research skills geographer, spatial analysis Nigeria, academic writing skills Nigeria',
+    url: `${BASE_URL}/#skills`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Skills', url: `${BASE_URL}/#skills` },
+    ],
+    ldType: 'WebPage',
+    ldName: 'Skills — David P. Adekunle',
+  },
+  testimonials: {
+    title: `Testimonials | David P. Adekunle — Recommendations & Reviews`,
+    description: `Read what colleagues, collaborators, and clients say about working with David P. Adekunle — Nigerian geographer, research writer, and author.`,
+    keywords: 'David P. Adekunle testimonials, David Adekunle reviews, Nigerian geographer recommendations, research writer reviews Nigeria',
+    url: `${BASE_URL}/#testimonials`,
+    type: 'website',
+    breadcrumbs: [
+      { name: 'Home', url: `${BASE_URL}/` },
+      { name: 'Testimonials', url: `${BASE_URL}/#testimonials` },
+    ],
+    ldType: 'WebPage',
+    ldName: 'Testimonials — David P. Adekunle',
+  },
+};
+
+// Per-article SEO config  (keyed by slug, matching POST_MAP)
+const ARTICLE_SEO = {
+  'cross-river-flooding-geography': {
+    title: `Cross River's Flooding Crisis: What Geography Tells Us That Politics Won't | David P. Adekunle`,
+    description: `David P. Adekunle examines the recurring floods in Cross River State through a geographic lens — exposing how decades of poor spatial planning turn a natural condition into a preventable disaster.`,
+    keywords: `Cross River flooding Nigeria, geography floods Nigeria, spatial planning Nigeria, NEMA flood preparedness, David P. Adekunle environment, flood risk Nigeria, Cross River State infrastructure`,
+    url: `${BASE_URL}/#blog/cross-river-flooding-geography`,
+    image: `${BASE_URL}/preview.jpg`,
+    section: 'Environment & Geography',
+    tag: 'Flooding, Spatial Planning, Cross River, Nigeria, Environment',
+    published: '2026-05-01T00:00:00+01:00',
+  },
+  'education-in-nigeria': {
+    title: `The State of Education in Nigeria: A Geographic Perspective | David P. Adekunle`,
+    description: `David P. Adekunle explores Nigeria's education crisis through spatial data — revealing how geography, distance, and infrastructure independently drive educational inequality across Nigerian states.`,
+    keywords: `Nigeria education geography, school distribution Nigeria, education inequality Nigeria, spatial education analysis, David P. Adekunle education, Nigerian education crisis`,
+    url: `${BASE_URL}/#blog/education-in-nigeria`,
+    image: `${BASE_URL}/preview.jpg`,
+    section: 'Education',
+    tag: 'Education, Nigeria, Geography, Spatial Analysis, Inequality',
+    published: '2026-05-01T00:00:00+01:00',
+  },
+  'youth-unemployment-nigeria': {
+    title: `Youth Unemployment and the Geography of Opportunity in Nigeria | David P. Adekunle`,
+    description: `David P. Adekunle analyses how geography shapes youth unemployment in Nigeria — examining how where young Nigerians are born determines their economic prospects in a spatially unequal country.`,
+    keywords: `youth unemployment Nigeria, geography of opportunity Nigeria, Nigerian youth jobs, spatial inequality Nigeria, David P. Adekunle youth, economic geography Nigeria`,
+    url: `${BASE_URL}/#blog/youth-unemployment-nigeria`,
+    image: `${BASE_URL}/preview.jpg`,
+    section: 'Development & Economy',
+    tag: 'Youth, Unemployment, Geography, Nigeria, Opportunity',
+    published: '2026-05-01T00:00:00+01:00',
+  },
+  'housing-crisis-nigeria': {
+    title: `Housing Crisis in Nigerian Cities: Who Is Building for Whom? | David P. Adekunle`,
+    description: `David P. Adekunle interrogates Nigeria's urban housing crisis — asking who urban development actually serves, why informal settlements persist, and what spatial justice demands of city planning.`,
+    keywords: `housing crisis Nigeria, Nigerian cities housing, urban development Nigeria, informal settlements Nigeria, spatial justice Nigeria, David P. Adekunle housing, urban geography Nigeria`,
+    url: `${BASE_URL}/#blog/housing-crisis-nigeria`,
+    image: `${BASE_URL}/preview.jpg`,
+    section: 'Urban Development',
+    tag: 'Housing, Cities, Nigeria, Urban Planning, Spatial Justice',
+    published: '2026-05-01T00:00:00+01:00',
+  },
+};
+
+/**
+ * Set a meta tag value by id or selector.
+ */
+function setMeta(id, attr, value) {
+  const el = document.getElementById(id);
+  if (el && value !== undefined && value !== null) el.setAttribute(attr, value);
+}
+
+/**
+ * Update all SEO meta tags for a given page name.
+ */
+function updateSEO(pageName) {
+  const cfg = PAGE_SEO[pageName];
+  if (!cfg) return;
+
+  // <title>
+  document.title = cfg.title;
+  setMeta('meta-title', 'content', cfg.title);
+
+  // Core meta
+  setMeta('meta-description', 'content', cfg.description);
+  setMeta('meta-keywords', 'content', cfg.keywords);
+  setMeta('meta-canonical', 'href', cfg.url);
+
+  // OG
+  setMeta('og-type', 'content', cfg.type || 'website');
+  setMeta('og-url', 'content', cfg.url);
+  setMeta('og-title', 'content', cfg.title);
+  setMeta('og-description', 'content', cfg.description);
+  setMeta('og-image', 'content', cfg.image || DEFAULT_IMAGE);
+
+  // Twitter
+  setMeta('tw-url', 'content', cfg.url);
+  setMeta('tw-title', 'content', cfg.title);
+  setMeta('tw-description', 'content', cfg.description);
+  setMeta('tw-image', 'content', cfg.image || DEFAULT_IMAGE);
+
+  // Article tags (clear for non-articles)
+  setMeta('article-section', 'content', '');
+  setMeta('article-tag', 'content', '');
+  setMeta('article-published', 'content', '');
+  setMeta('article-modified', 'content', '');
+
+  // Breadcrumb JSON-LD
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: cfg.breadcrumbs.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: b.url,
+    })),
+  };
+  const ldBc = document.getElementById('ld-breadcrumb');
+  if (ldBc) ldBc.textContent = JSON.stringify(breadcrumb);
+
+  // WebPage JSON-LD (inline, replace or inject)
+  updatePageLD(cfg);
+}
+
+/**
+ * Update SEO for a specific blog article.
+ */
+function updateArticleSEO(slug) {
+  const art = ARTICLE_SEO[slug];
+  if (!art) {
+    updateSEO('blog');
+    return;
+  }
+
+  document.title = art.title;
+  setMeta('meta-title', 'content', art.title);
+  setMeta('meta-description', 'content', art.description);
+  setMeta('meta-keywords', 'content', art.keywords);
+  setMeta('meta-canonical', 'href', art.url);
+
+  setMeta('og-type', 'content', 'article');
+  setMeta('og-url', 'content', art.url);
+  setMeta('og-title', 'content', art.title);
+  setMeta('og-description', 'content', art.description);
+  setMeta('og-image', 'content', art.image || DEFAULT_IMAGE);
+
+  setMeta('tw-url', 'content', art.url);
+  setMeta('tw-title', 'content', art.title);
+  setMeta('tw-description', 'content', art.description);
+  setMeta('tw-image', 'content', art.image || DEFAULT_IMAGE);
+
+  // Article-specific OG
+  setMeta('article-section', 'content', art.section || '');
+  setMeta('article-tag', 'content', art.tag || '');
+  setMeta('article-published', 'content', art.published || '');
+  setMeta('article-modified', 'content', art.modified || art.published || '');
+
+  // Article breadcrumb
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${BASE_URL}/#blog` },
+      { '@type': 'ListItem', position: 3, name: art.title.split('|')[0].trim(), item: art.url },
+    ],
+  };
+  const ldBc = document.getElementById('ld-breadcrumb');
+  if (ldBc) ldBc.textContent = JSON.stringify(breadcrumb);
+
+  // Article JSON-LD
+  const articleLD = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: art.title.split('|')[0].trim(),
+    description: art.description,
+    url: art.url,
+    datePublished: art.published,
+    dateModified: art.modified || art.published,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR,
+      url: `${BASE_URL}/`,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: AUTHOR,
+      url: `${BASE_URL}/`,
+    },
+    image: art.image || DEFAULT_IMAGE,
+    keywords: art.keywords,
+    articleSection: art.section,
+    inLanguage: 'en-NG',
+    isPartOf: {
+      '@type': 'Blog',
+      name: `Blog — ${AUTHOR}`,
+      url: `${BASE_URL}/#blog`,
+    },
+  };
+
+  let ldPage = document.getElementById('ld-page');
+  if (!ldPage) {
+    ldPage = document.createElement('script');
+    ldPage.type = 'application/ld+json';
+    ldPage.id = 'ld-page';
+    document.head.appendChild(ldPage);
+  }
+  ldPage.textContent = JSON.stringify(articleLD);
+}
+
+/**
+ * Inject/update a WebPage JSON-LD block for non-article pages.
+ */
+function updatePageLD(cfg) {
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': cfg.ldType || 'WebPage',
+    name: cfg.ldName || cfg.title,
+    description: cfg.description,
+    url: cfg.url,
+    author: { '@type': 'Person', name: AUTHOR, url: `${BASE_URL}/` },
+    inLanguage: 'en-NG',
+    isPartOf: { '@type': 'WebSite', name: AUTHOR, url: `${BASE_URL}/` },
+  };
+
+  let ldPage = document.getElementById('ld-page');
+  if (!ldPage) {
+    ldPage = document.createElement('script');
+    ldPage.type = 'application/ld+json';
+    ldPage.id = 'ld-page';
+    document.head.appendChild(ldPage);
+  }
+  ldPage.textContent = JSON.stringify(ld);
+}
+
+// ── Hook into existing showPage() ──
+// Wrap the original showPage to call updateSEO after page switch
+(function() {
+  const _origShowPage = showPage;
+  showPage = function(name, fromHash) {
+    _origShowPage.apply(this, arguments);
+    updateSEO(name || 'home');
+  };
+})();
+
+// ── Hook into blog post open/close ──
+// Wrap openPost and closePost if they exist
+(function() {
+  if (typeof openPost === 'function') {
+    const _origOpenPost = openPost;
+    openPost = function(postId, slug) {
+      _origOpenPost.apply(this, arguments);
+      if (slug) updateArticleSEO(slug);
+    };
+  }
+  if (typeof closePost === 'function') {
+    const _origClosePost = closePost;
+    closePost = function() {
+      _origClosePost.apply(this, arguments);
+      updateSEO('blog');
+    };
+  }
+})();
+
+// ── Initial SEO on page load (syncs with hash) ──
+window.addEventListener('DOMContentLoaded', function() {
+  const hash = window.location.hash.replace('#', '') || 'home';
+  if (hash.startsWith('blog/')) {
+    const slug = hash.replace('blog/', '');
+    updateArticleSEO(slug);
+  } else {
+    updateSEO(hash in PAGE_SEO ? hash : 'home');
+  }
+});
 </script>
 </body>
 </html>
